@@ -1,58 +1,31 @@
-<!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+---
+layout: compress
+---
 
-{% seo %}
+{% include base_path %}
+
+<!doctype html>
+<html lang="{{ site.locale | slice: 0,2 }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
   </head>
 
   <body>
 
-    <header>
-      <div class="container">
-        <div class="subcontainer_header_main">
-          <h1>{{ site.title | default: site.github.repository_name }}</h1>
-          <h2>{{ site.description | default: site.github.project_tagline }}</h2>
-        </div>
-      </div>
-    </header>
+    {% include browser-upgrade.html %}
+    {% include masthead.html %}
 
-    <div class="container">
-      <section id="main_content">
-        {{ content }}
-      </section>
+    {{ content }}
+
+    <div class="page__footer">
+      <footer>
+        {% include footer/custom.html %}
+        {% include footer.html %}
+      </footer>
     </div>
 
-    {% if site.google_analytics %}
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', '{{ site.google_analytics }}', 'auto');
-        ga('send', 'pageview');
-      </script>
-    {% endif %}
-    
-    <footer><div class="container">
-      <div class="subcontainer_footer_left">
-        <small><strong>W2, West Zone<br>
-        Graduate School of System Life Science, Kyushu University<br>
-          </strong></small>
-      </div>
-      <div class="subcontainer_footer_right">
-        <span style="font-size: 24px">
-          <a href="https://github.com/Anna1015"><i class="fab fa-github"></i></a>
-        </span>
-        <br>
-        <small>Modified from Jekyll theme 
-        <a href="https://pages-themes.github.io/primer/">Primer</a>
-        </small>
-      </div>
-    </div></footer>
+    {% include scripts.html %}
+
   </body>
 </html>
